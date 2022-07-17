@@ -5,11 +5,11 @@ import Button from "../../Components/Button/button";
 import Input from "../../Components/Input/input";
 import { login } from "../../Config/firebase";
 
-export default function Login() {
+export default function Login(props) {
   const [form, setform] = useState({});
-  const login = () => {
-    const { email, password } = form;
-    login(email, password);
+
+  const loginNow = () => {
+    login(form);
   };
   const value = (e, key) => {
     setform({ ...form, [key]: e.target.value });
@@ -37,6 +37,23 @@ export default function Login() {
               <h1>Login</h1>
             </Col>
             <Row className="input-Main-Row">
+              <Col
+                className="input-Col"
+                xs={11}
+                sm={11}
+                md={11}
+                lg={11}
+                xl={11}
+              >
+                <Input
+                  onChange={(e) => {
+                    value(e, "name");
+                  }}
+                  className="email-Input"
+                  placeholder="Enter The Name :"
+                  type={"text"}
+                />
+              </Col>
               <Col
                 className="input-Col"
                 xs={11}
@@ -80,7 +97,7 @@ export default function Login() {
                 xl={11}
               >
                 <Button
-                  onClick={login}
+                  onClick={loginNow}
                   className="sign-Up-Button"
                   Text={"Login"}
                 />

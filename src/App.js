@@ -1,37 +1,28 @@
-import logo from "./logo.svg";
 import "./App.css";
-import SignUp from "./Screen/Sign-Up";
-import Login from "./Screen/Login";
 import { Row, Col } from "react-bootstrap";
+import Login from "./Screen/Login";
+import SignUp from "./Screen/Sign-Up";
+import { useState } from "react";
+import Home from "./Screen/Home-Page";
 
 function App() {
+  const [screen, setScreen] = useState("signUp");
+  const changeScreen = (currentScreen) => {
+    setScreen(currentScreen);
+  };
   return (
     <>
       <Row>
-        <Col xs={12} sm={12} md={12} lg={6} xl={6}>
-          <SignUp />
+        <Col xs={12} sm={12} md={12} lg={12} xl={12}>
+          {/* <SignUp /> */}
+          {screen === "signUp" && <SignUp changeScreen={changeScreen} />}
+          {screen === "login" && <Login />}
         </Col>
-        <Col xs={12} sm={12} md={12} lg={6} xl={6}>
+        {/* <Col xs={12} sm={12} md={12} lg={6} xl={6}>
           <Login />
-        </Col>
+        </Col> */}
       </Row>
     </>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
   );
 }
 

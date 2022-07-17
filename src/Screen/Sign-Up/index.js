@@ -1,20 +1,30 @@
 import React, { useState } from "react";
 import "./index.css";
-import { Row, Col, Container } from "react-bootstrap";
 import Input from "../../Components/Input/input";
 import Button from "../../Components/Button/button";
-import { register, login } from "../../Config/firebase";
+import { Row, Col, Container } from "react-bootstrap";
+import { login, signUp } from "../../Config/firebase";
+import { Oval } from "react-loader-spinner";
+import Home from "../Home-Page";
 
-export default function SignUp(from) {
-  // const [emailValue,setEmailValue] = useState("")
-  // const [passwordValue,setPasswordValue] = useState("")
-  const [form, setform] = useState({});
+export default function SignUp(props) {
+  const [form, setForm] = useState({});
+  const [loader, setLoader] = useState(false);
 
-  const signup = () => {
-    register(from);
+  const signup = async () => {
+    setLoader(true);
+    try {
+      var result = await signUp(form);
+      props.changeScreen("login");
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setLoader(false);
+    }
   };
+
   const value = (e, key) => {
-    setform({ ...form, [key]: e.target.value });
+    setForm({ ...form, [key]: e.target.value });
   };
 
   return (
@@ -26,8 +36,8 @@ export default function SignUp(from) {
             xs={11}
             sm={11}
             md={11}
-            lg={7}
-            xl={7}
+            lg={5}
+            xl={5}
           >
             <Col
               className="heading-Col"
@@ -52,7 +62,7 @@ export default function SignUp(from) {
                   className="email-Input"
                   placeholder="Enter The Name:"
                   type={"text"}
-                  //   onChange={(e)=>{e, "name"}}
+                  onChange={(e) => value(e, "name")}
                 />
               </Col>
               <Col
@@ -64,9 +74,7 @@ export default function SignUp(from) {
                 xl={11}
               >
                 <Input
-                  onChange={(e) => {
-                    value(e, "email");
-                  }}
+                  onChange={(e) => value(e, "email")}
                   className="email-Input"
                   placeholder="Enter The Email :"
                   type={"email"}
@@ -81,9 +89,7 @@ export default function SignUp(from) {
                 xl={11}
               >
                 <Input
-                  onChange={(e) => {
-                    value(e, "password");
-                  }}
+                  onChange={(e) => value(e, "password")}
                   className="email-Input"
                   placeholder="Enter The Password :"
                   type={"password"}
@@ -98,10 +104,19 @@ export default function SignUp(from) {
                 xl={11}
               >
                 <Button
+                  //  {loader ? (<Oval height="30px" width="100%" color="red" /> )
+                  //  : (Text={"SignUp"}) }
                   onClick={signup}
                   className="sign-Up-Button"
-                  Text={"Sign Up"}
+                  Text={"Sign-Up"}
                 />
+                {/* {loader ? (
+                  <Button
+                    onClick={signup}
+                    className="sign-Up-Button"
+                    Text={"Sign-Up"}
+                  />
+                ) : (<Oval height="30px" width="100%" color="red" />)} */}
               </Col>
             </Row>
           </Col>
