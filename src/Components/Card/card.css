@@ -1,0 +1,53 @@
+.p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+label,
+img {
+  cursor: pointer;
+}
+.card-Mein-Col {
+  border: 1px solid #ededed;
+}
+.card-Work-Col {
+  border: solid yellow;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+}
+.image-Col-Card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text-Heart-Icon-Col {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-Text {
+  font-size: 19px;
+  color: gray;
+  padding: 1%;
+}
+.card-Text:hover {
+  color: royalblue;
+  transition: all.4s;
+}
+.heart-Icon {
+  color: black;
+}
+.heart-Icon:hover {
+  color: yellow;
+}
+.card-Last-Text {
+  font-size: 19px;
+  color: gray;
+}
+.card-Last-Text:hover {
+  color: royalblue;
+}

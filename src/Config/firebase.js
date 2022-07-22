@@ -11,7 +11,9 @@ import {
   addDoc,
   query,
   where,
+  getDocs,
 } from "firebase/firestore";
+import swal from "sweetalert";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCs9XtEdmpnwJPXpnJvjQEdbKq-RmLB47Q",
@@ -30,24 +32,36 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 // console.log("Firestore", db);
 
+// Sign Up and Create Collection User
 async function signUp(form) {
   const { email, password, name } = form;
   // console.log("Jharo lagao");
   // console.log("Chai banny rakh dii");
   await createUserWithEmailAndPassword(auth, email, password);
-  alert("Successful Sign Up");
+  await swal({
+    title: "Successful Sign Up!",
+    text: "",
+    icon: "success",
+    button: "Ok",
+  });
+
   // console.log("Chai Ban gai");
   await addDoc(collection(db, "user"), {
     name,
     email,
-    // password,
   });
   // console.log("Bartan Dho lo ab");
 }
 
 async function login(form) {
-  const { email, password } = form;
+  const { name, email, password } = form;
   await signInWithEmailAndPassword(auth, email, password);
+  await swal({
+    title: "Successfully Log In!",
+    text: "",
+    icon: "success",
+    button: "Ok",
+  });
   // .then((userCredential) => {
   //   const user = userCredential.user;
   //   alert("Successfully Log In!");
@@ -60,28 +74,63 @@ async function login(form) {
   // });
 }
 
+// Create Adds Collection
 async function userAdds(userDeatail) {
-  const { title, desc, price } = userDeatail;
+  const { title, price, detail } = userDeatail;
+
   try {
     await addDoc(collection(db, "adds"), {
       title,
-      desc,
       price,
+      detail,
     });
-    alert("Kardiya Jani add");
+    await swal({
+      title: "Your data is add Successfully",
+      text: "",
+      icon: "success",
+      button: "Ok",
+    });
   } catch (e) {
-    alert(e.message);
+    await swal({
+      title: e.message,
+      text: "",
+      icon: "warning",
+      button: "Ok",
+    });
   }
-  return "Hua jani";
+  return "Bhai";
 }
-//  function getDta () => {
-//   const q = query(collection(db, "cities"));
 
-//   const querySnapshot = await getDocs(q);
-//   querySnapshot.forEach((doc) => {
-//     // doc.data() is never undefined for query doc snapshots
-//     console.log(doc.id, " => ", doc.data());
-//   });
-// }
+// Get Adds Collection
+async function getDta() {
+  const q = query(collection(db, "adds"));
+  const querySnapshot = await getDocs(q);
+  // where(user.uid == user.email));
 
-export { signUp, login, userAdds };
+  let data = [];
+  querySnapshot.forEach((doc) => {
+    data = [...data, doc.data()];
+    // console.log("Adds Collection Get---->>", doc.data().desc);
+    // console.log("Adds Collection Get---->>", doc.data());
+  });
+  return data;
+}
+
+async function getUser() {
+  const userInfo = query(collection(db, "user"))
+  // .doc(getUser.user.uid).get();
+  // localStorage.setItem("User Login", JSON.stringify(userInfo.data()));
+  const querySnapshot = await getDocs(userInfo);
+  // const userInfo = await db.collection("users").doc(getUser.user.uid).get();
+  let data = [];
+
+  querySnapshot.forEach((doc) => {
+    data = [...data, doc.data()];
+    console.log("Adds Collection Get---->>", doc.data());
+  });
+  return data;
+}
+
+export { signUp, login, userAdds, 
+  getDta,
+   getUser };

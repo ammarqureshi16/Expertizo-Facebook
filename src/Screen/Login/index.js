@@ -6,6 +6,7 @@ import Input from "../../Components/Input/input";
 import { login } from "../../Config/firebase";
 import SignUpPage from "../Sign-Up";
 import Home from "../Home-Page";
+import swal from "sweetalert";
 
 export default function Login(props) {
   const [form, setform] = useState({});
@@ -21,7 +22,12 @@ export default function Login(props) {
       var result = await login(form);
       setScreen(true);
     } catch (error) {
-      alert(error.message);
+      swal({
+        title: error.message,
+        text: "",
+        icon: "error",
+        button: "Ok",
+      });
     }
   };
 

@@ -1,0 +1,99 @@
+.main-Row-Navbar {
+  /* border: solid red; */
+  background-color: #f7f8f8;
+}
+.ol-Text-Col {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-Icon-Main-Col {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.car-Icon-Col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.car-Icon-Col:hover {
+  color: blue;
+}
+.property-Col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.property-Col:hover {
+  color: blue;
+}
+/*  */
+.black-Olx {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+}
+.select-Input {
+  width: 100%;
+  padding: 15px;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.select-Input-Col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: white;
+}
+.search-Input {
+  width: 100%;
+  padding: 14px;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  border: 3px solid black;
+  /* border-right: none; */
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.search-Input:hover {
+  border: 3px solid royalblue;
+}
+.search-Icon-Col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+  padding: 10px;
+  background-color: #002f34;
+  cursor: pointer;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.search-Icon-Col:hover {
+  border: 3px solid royalblue;
+}
+.log-Out-Text {
+  font-weight: bolder;
+  font-size: 22px;
+  cursor: pointer;
+}
+.log-Out-Text:hover {
+  color: red;
+}

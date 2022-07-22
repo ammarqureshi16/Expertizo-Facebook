@@ -5,8 +5,9 @@ import Button from "../../Components/Button/button";
 import { Row, Col, Container } from "react-bootstrap";
 import { login, signUp } from "../../Config/firebase";
 import { Oval } from "react-loader-spinner";
-import Home from "../Home-Page";
+import HomePage from "../Home-Page";
 import LoginPage from "../Login";
+import swal from "sweetalert";
 
 export default function SignUp(props) {
   const [form, setForm] = useState({});
@@ -20,9 +21,15 @@ export default function SignUp(props) {
   const signup = async () => {
     setLoader(true);
     try {
-      var result = await signUp(form);
+      await signUp(form);
+      setScreen(true);
     } catch (error) {
-      alert(error.message);
+      swal({
+        title: error.message,
+        text: "",
+        icon: "error",
+        button: "Ok",
+      });
     } finally {
       setLoader(false);
     }
@@ -144,7 +151,7 @@ export default function SignUp(props) {
                       setScreen(true);
                     }}
                   >
-                    Go to SignUp
+                    Go to Login
                   </p>
                 </Col>
               </Row>

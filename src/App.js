@@ -1,9 +1,7 @@
 import "./App.css";
-import { Row, Col } from "react-bootstrap";
 import Login from "./Screen/Login";
 import SignUp from "./Screen/Sign-Up";
 import { useEffect, useState } from "react";
-import Home from "./Screen/Home-Page";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 function App() {
@@ -15,9 +13,10 @@ function App() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const uid = user.uid;
+        // console.log("User Data", user.email);
         console.log("User Data", user);
-      } else {
-        alert("Sorry");
+        // console.log("User Data",user.uid)
+        // console.log("User Data", user);
       }
     });
   }, []);

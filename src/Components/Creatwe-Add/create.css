@@ -1,0 +1,55 @@
+.adds-Card-Main-Row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 50px; */
+}
+.add-Card-Col {
+  border: solid #ededed;
+  border-radius: 10px;
+  height: 380px;
+}
+.heading-Col {
+  margin-top: 25px;
+  text-align: center;
+  font-family: sans-serif;
+  margin-bottom: 15px;
+}
+.input-Main-Row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input-Col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 8px;
+}
+.title-Input {
+  width: 100%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  cursor: pointer;
+  font-family: sans-serif;
+}
+.button-Col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 2px;
+}
+.submit-Button {
+  width: 100%;
+  padding: 7px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  background-color: royalblue;
+  color: white;
+}
