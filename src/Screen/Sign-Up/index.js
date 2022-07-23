@@ -21,7 +21,7 @@ export default function SignUp(props) {
   const signup = async () => {
     setLoader(true);
     try {
-      await signUp(form);
+     const result = await signUp(form);
       setScreen(true);
     } catch (error) {
       swal({

@@ -2,6 +2,7 @@ import React from "react";
 import "./card.css";
 import { Row, Col } from "react-bootstrap";
 import { AiOutlineHeart } from "react-icons/ai";
+import Olx from   "../../Assets/Images/bike black.PNG"
 
 export default function Card(props) {
   return (
@@ -17,7 +18,7 @@ export default function Card(props) {
               lg={12}
               xl={12}
             >
-              <img src={props.Img} />
+              <img src={Olx} />
             </Col>
             <Col
               className="card-Work-Col"
@@ -46,7 +47,7 @@ export default function Card(props) {
                 xl={12}
                 lg={12}
               >
-                <p className="card-Text">{props.Title}</p>
+                <p className="card-Text">{props.Detail}</p>
                 <p style={{ marginTop: "50px" }}>{props.Text}</p>
               </Col>
             </Col>

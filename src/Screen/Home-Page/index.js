@@ -11,42 +11,20 @@ import Navbar from "../../Components/Navb-Bar/navbar";
 import Cards from "../../Components/Card/card";
 import AddImage from "../../Assets/Images/Add Image.PNG";
 import SecAdd from "../../Assets/Images/add.PNG";
-import Olx from "../../Assets/Images/bike black.PNG";
+import Profile from "../User-Profile";
 
 export default function Home(props) {
   const [screen, setScreen] = useState(false);
   const [renderData, setRenderData] = useState([]);
 
-    const revice = async () => {
+  const renderAdds = async () => {
     var result = await getDta();
     setRenderData(result);
-    console.log("Add Collection Data Set In State -->>>", result[0].title);
-    console.log("milla--->>>", renderData);
-    return result
+    // console.log("Add Collection Data Set In State -->>>", result[0].title);
+    // console.log("milla--->>>", renderData);
+    return result;
   };
-
-  const array = [
-    {
-      Img: Olx,
-      Title: "Bike",
-      Price: "1200/",
-    },
-    {
-      Img: Olx,
-      Title: "Bike",
-      Price: "1200/",
-    },
-    {
-      Img: Olx,
-      Title: "Bike",
-      Price: "1200/",
-    },
-    {
-      Img: Olx,
-      Title: "Bike",
-      Price: "1200/",
-    },
-  ];
+  renderAdds();
 
   const logout = async () => {
     const auth = getAuth();
@@ -69,6 +47,7 @@ export default function Home(props) {
         });
       });
   };
+
   return (
     <>
       {screen ? (
@@ -77,9 +56,9 @@ export default function Home(props) {
         </>
       ) : (
         <>
+          <Profile />
           <Navbar onClick={logout} Text="Log Out" />
           <Row className="flex">
-            {/* <Button Text={"Adds"} /> */}
             <Col
               style={{ marginBottom: "15px" }}
               xs={12}
@@ -96,7 +75,15 @@ export default function Home(props) {
                 src={AddImage}
               />
             </Col>
-            <Col className="flex" style={{marginBottom:"25px"}} xs={12} sm={12} md={6} lg={6} xl={6}>
+            <Col
+              className="flex"
+              style={{ marginBottom: "25px" }}
+              xs={12}
+              sm={12}
+              md={6}
+              lg={6}
+              xl={6}
+            >
               <img style={{ width: "100%" }} src={SecAdd} />
             </Col>
             <Col xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -110,16 +97,16 @@ export default function Home(props) {
               lg={11}
               xl={11}
             >
-              <h2 onClick={revice}>Fresh recommendations</h2>
+              <h2>Fresh recommendations</h2>
             </Col>
-            {array.map((item) => {
+            {renderData.map((item) => {
               return (
                 <>
-                  <Col xs={3} sm={3} md={4} xl={3} lg={3}>
+                  <Col xs={8} sm={8} md={4} xl={3} lg={3}>
                     <Cards
-                      Img={item.Img}
-                      // Title={item.result.title}
-                      Text={item.Price}
+                      Title={item.title}
+                      Text={item.price}
+                      Detail={item.detail}
                     />
                   </Col>
                 </>

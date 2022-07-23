@@ -1,0 +1,56 @@
+.profile-Card-Main-Row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+.profile-Card-Col {
+  border: solid #ededed;
+  border-radius: 10px;
+  height: 380px;
+}
+.profile-Heading {
+  margin-top: 25px;
+  text-align: center;
+  font-family: sans-serif;
+}
+.profile-Input-Main-Row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+.profile-Input-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 8px;
+}
+.profile-Inputs {
+  width: 100%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  cursor: pointer;
+  font-family: sans-serif;
+}
+.button-Col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 2px;
+}
+.submit-Button {
+  border: solid red;
+  width: 100%;
+  padding: 7px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  background-color: royalblue;
+  color: white;
+}

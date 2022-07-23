@@ -14,12 +14,13 @@ function App() {
       if (user) {
         const uid = user.uid;
         // console.log("User Data", user.email);
-        console.log("User Data", user);
+        // console.log("User Data", user);
         // console.log("User Data",user.uid)
         // console.log("User Data", user);
       }
     });
   }, []);
+
   // const changeScreen = (currentScreen) => {
   //   setScreen(currentScreen);
   // };
